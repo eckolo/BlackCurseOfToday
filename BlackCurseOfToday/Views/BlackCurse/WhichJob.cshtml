@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Which Job";
+}
+
+<div class="jumbotron">
+    <h1>今日の黒呪</h1>
+    <p class="lead">今日の<a href="https://members.dd-on.jp/manual/Labyrinth.html">黒呪</a>は何で行く？</p>
+</div>
+
+<div class="row">
+    @foreach (var jobName in Model.jobNameList)
+    {
+        <li class="list-group-item row">@jobName</li>
+    }
+</div>
