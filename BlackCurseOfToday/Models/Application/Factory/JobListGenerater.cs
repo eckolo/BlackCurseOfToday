@@ -31,7 +31,7 @@ namespace BlackCurseOfToday.Models.Application.Factory
                 .OrderBy(_ => Guid.NewGuid())
                 .Take(num - 1);
 
-            var result = healers.Concat(others).OrderBy(_ => Guid.NewGuid()).ToArray();
+            var result = others.Concat(healers).OrderBy(_ => Guid.NewGuid()).ToArray();
             return result;
         }
     }

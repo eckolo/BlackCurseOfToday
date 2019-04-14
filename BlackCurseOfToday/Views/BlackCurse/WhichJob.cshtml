@@ -1,4 +1,5 @@
-﻿@{
+﻿@Model BlackCurseOfToday.Models.Application.Value.WhichJobView
+@{
     ViewBag.Title = "Which Job";
 }
 
@@ -8,8 +9,8 @@
 </div>
 
 <div class="row">
-    @foreach (var jobName in Model.jobNameList)
+    @foreach (var jobData in Model.jobDataList)
     {
-        <li class="list-group-item row">@jobName</li>
+        <li class="list-group-item row @jobData.colorClass">@jobData.name</li>
     }
 </div>
