@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Main Menu";
+}
+
+<div class="jumbotron">
+    <h1>今日の黒呪</h1>
+    <p class="lead">今日の<a href="https://members.dd-on.jp/manual/Labyrinth.html">黒呪</a>は何で行く？</p>
+</div>
+
+<div class="row">
+    <div class="panel panel-info">
+        <div class="panel-heading">機能選択</div>
+        <ul class="list-group">
+            @Html.ActionLink("技で検索", "SkillSearch", "Predict", null, new { @class = "list-group-item lead" })
+            @Html.ActionLink("モンスターで検索", "MonsterSearch", "Predict", null, new { @class = "list-group-item lead" })
+        </ul>
+    </div>
+</div>
