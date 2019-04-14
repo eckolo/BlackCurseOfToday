@@ -1,4 +1,5 @@
-﻿using BlackCurseOfToday.Models.Application.Value;
+﻿using BlackCurseOfToday.Models.Application.Service;
+using BlackCurseOfToday.Models.Application.Value;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,11 +17,22 @@ namespace BlackCurseOfToday.Models.Application.Factory
         /// </summary>
         /// <param name="num">ピックアップ数</param>
         /// <returns>ジョブのリスト</returns>
-        public static IOrderedEnumerable<Job> ShufflePickUp(int num)
-            => Enum.GetValues(typeof(Job))
-                .Cast<Job>()
+        public static IEnumerable<Job> ShufflePickUp(int num)
+        {
+            var allJobs = Enum.GetValues(typeof(Job)).Cast<Job>();
+
+            var healers = allJobs
+                .Where(job => job.GetRole() == Role.Healer)
                 .OrderBy(_ => Guid.NewGuid())
-                .Take(num)
-                .OrderBy(_ => Guid.NewGuid());
+                .Take(1)
+                .ToArray();
+            var others = allJobs
+                .Except(healers)
+                .OrderBy(_ => Guid.NewGuid())
+                .Take(num - 1);
+
+            var result = others.Concat(healers).OrderBy(_ => Guid.NewGuid()).ToArray();
+            return result;
+        }
     }
 }
