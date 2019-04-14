@@ -19,13 +19,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("モンスター変身先予測機", "Index", "Predict", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("技で検索", "SkillSearch", "Predict")</li>
-                    <li>@Html.ActionLink("モンスターで検索", "MonsterSearch", "Predict")</li>
-                </ul>
+                @Html.ActionLink("今日の黒呪", "WhichJob", "BlackCurse", new { area = "" }, new { @class = "navbar-brand" })
             </div>
         </div>
     </div>
@@ -33,7 +27,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; 2018 - @DateTime.Now.Year <a href="https://twitter.com/eckkolo">ECkolo</a></p>
+            <p>&copy; 2019 - @DateTime.Now.Year <a href="https://twitter.com/eckkolo">ECkolo</a></p>
         </footer>
     </div>
 

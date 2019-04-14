@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Main Menu";
+    ViewBag.Title = "Which Job";
 }
 
 <div class="jumbotron">
@@ -8,11 +8,8 @@
 </div>
 
 <div class="row">
-    <div class="panel panel-info">
-        <div class="panel-heading">機能選択</div>
-        <ul class="list-group">
-            @Html.ActionLink("技で検索", "SkillSearch", "Predict", null, new { @class = "list-group-item lead" })
-            @Html.ActionLink("モンスターで検索", "MonsterSearch", "Predict", null, new { @class = "list-group-item lead" })
-        </ul>
-    </div>
+    @foreach (var jobName in Model.jobNameList)
+    {
+        <li class="list-group-item row">@jobName</li>
+    }
 </div>
